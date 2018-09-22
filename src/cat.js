@@ -26,4 +26,16 @@ Cat.prototype.feed = function() {
   } else (this.hunger = MINIMUM_HUNGER);
 };
 
+Cat.prototype.checkUp = function() {
+  if(this.fitness <= 3 && this.hunger >= 5) {
+    return 'I am hungry and I need a walk'
+  } else if(this.fitness <= 3) {
+    return 'I need a walk'
+  } else if(this.hunger >= 5) {
+    return 'I am hungry';
+  } else {
+    return 'I am puuurrrfect';
+  };
+};
+
 module.exports = Cat;

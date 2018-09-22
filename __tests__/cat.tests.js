@@ -16,4 +16,16 @@ describe('growUp function', () => {
     cat.growUp();
     expect(cat.age).toEqual(1);
   });
+  it('increases the pet hunger by 5', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 0;
+    cat.growUp();
+    expect(cat.hunger).toEqual(5);
+  });
+  it('decreases the pet fitness by 3', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.fitness = 10;
+    cat.growUp();
+    expect(cat.fitness).toEqual(7);
+});
 });

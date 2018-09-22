@@ -8,6 +8,12 @@ function Cat(name) {
   this.fitness = MAXIUM_HUNGER;
 };
 
+Cat.prototype = {
+  get isAlive() {
+    return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+  }
+};
+
 Cat.prototype.growUp = function() {
   this.age += 1;
   this.hunger += 5;
@@ -37,5 +43,7 @@ Cat.prototype.checkUp = function() {
     return 'I am puuurrrfect';
   };
 };
+
+
 
 module.exports = Cat;

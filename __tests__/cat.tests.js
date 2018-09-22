@@ -60,27 +60,44 @@ describe('feed method', () => {
 });
 
 describe('checkUp method', () => {
-it('checks the cat fitness status', () => {
+  it('checks the cat fitness status', () => {
     const cat = new Cat('Mr Whiskerson');
     cat.fitness = 2;
     expect(cat.checkUp()).toEqual('I need a walk');
   });
-it('checks the cat hunger status', () => {
-  const cat = new Cat('Mr Whiskerson');
-  cat.hunger = 5;
-  expect(cat.checkUp()).toEqual('I am hungry');
+  it('checks the cat hunger status', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 5;
+    expect(cat.checkUp()).toEqual('I am hungry');
   });
-it('checks both hunger and fitness together', () => {
-  const cat = new Cat('Mr Whiskerson');
-  cat.hunger = 6;
-  cat.fitness = 3;
-  expect(cat.checkUp()).toEqual('I am hungry and I need a walk');
+  it('checks both hunger and fitness together', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 6;
+    cat.fitness = 3;
+    expect(cat.checkUp()).toEqual('I am hungry and I need a walk');
   });
-it('checks both hunger and fitness together', () => {
-  const cat = new Cat('Mr Whiskerson');
-  cat.hunger = 4;
-  cat.fitness = 8;
-  expect(cat.checkUp()).toEqual('I am puuurrrfect');
+  it('checks both hunger and fitness together', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 4;
+    cat.fitness = 8;
+    expect(cat.checkUp()).toEqual('I am puuurrrfect');
+  });
+});
+
+describe('isAlive', () => {
+  it('returns a boolean whether the pet is still alive', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 10;
+    cat.fitness = 8;
+    cat.age = 10;
+    expect(cat.isAlive).toEqual(false);
+  });
+  it('returns a boolean whether the pet is still alive', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 4;
+    cat.fitness = 8;
+    cat.age = 10;
+    expect(cat.isAlive).toEqual(true);
   });
 });
 

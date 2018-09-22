@@ -10,7 +10,7 @@ describe('Cat', () => {
   });
 });
 
-describe('growUp function', () => {
+describe('growUp method', () => {
   it('growUp() increases the cat age by 1', () => {
     const cat = new Cat('Mr Whiskerson');
     cat.growUp();
@@ -28,4 +28,12 @@ describe('growUp function', () => {
     cat.growUp();
     expect(cat.fitness).toEqual(7);
 });
+
+describe('walk method', () => {
+  const cat = new Cat('Mr Whiskerson');
+  cat.fitness = 2;
+  cat.walk();
+  expect(cat.fitness).toEqual(6);
+})
+
 });

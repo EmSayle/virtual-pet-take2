@@ -1,5 +1,5 @@
 const MAXIUM_HUNGER = 10;
-const MINIMUM_FITNESS = 0;
+const MINIMUM_HUNGER = 0;
 
 function Cat(name) {
   this.name = name;
@@ -18,6 +18,12 @@ Cat.prototype.walk = function() {
   if(this.fitness < 6) {
     this.fitness += 4;
   } else (this.fitness = MAXIUM_HUNGER);
+};
+
+Cat.prototype.feed = function() {
+  if(this.hunger > 3) {
+    this.hunger -= 3;
+  } else (this.hunger = MINIMUM_HUNGER);
 };
 
 module.exports = Cat;

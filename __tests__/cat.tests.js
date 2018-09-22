@@ -16,13 +16,13 @@ describe('growUp method', () => {
     cat.growUp();
     expect(cat.age).toEqual(1);
   });
-  it('increases the pet hunger by 5', () => {
+  it('increases the cat hunger by 5', () => {
     const cat = new Cat('Mr Whiskerson');
     cat.hunger = 0;
     cat.growUp();
     expect(cat.hunger).toEqual(5);
   });
-  it('decreases the pet fitness by 3', () => {
+  it('decreases the cat fitness by 3', () => {
     const cat = new Cat('Mr Whiskerson');
     cat.fitness = 10;
     cat.growUp();
@@ -30,10 +30,33 @@ describe('growUp method', () => {
 });
 
 describe('walk method', () => {
-  const cat = new Cat('Mr Whiskerson');
-  cat.fitness = 2;
-  cat.walk();
-  expect(cat.fitness).toEqual(6);
-})
+  it('increases the cat fitness by 4', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.fitness = 2;
+    cat.walk();
+    expect(cat.fitness).toEqual(6);
+  });
+  it('increases the cat fitness by 4', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.fitness = 8;
+    cat.walk();
+    expect(cat.fitness).toEqual(10);
+  });
+});
+
+describe('feed method', () => {
+  it('decreases the cat hunger by 3', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 5;
+    cat.feed();
+    expect(cat.hunger).toEqual(2);
+  });
+  it('decreases the cat hunger by 3', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 2;
+    cat.feed();
+    expect(cat.hunger).toEqual(0);
+  });
+});
 
 });

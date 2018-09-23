@@ -85,19 +85,42 @@ describe('checkUp method', () => {
 });
 
 describe('isAlive', () => {
-  it('returns a boolean whether the pet is still alive', () => {
+  it('returns a boolean whether the cat is still alive', () => {
     const cat = new Cat('Mr Whiskerson');
     cat.hunger = 10;
     cat.fitness = 8;
     cat.age = 10;
     expect(cat.isAlive).toEqual(false);
   });
-  it('returns a boolean whether the pet is still alive', () => {
+  it('returns a boolean whether the cat is still alive', () => {
     const cat = new Cat('Mr Whiskerson');
     cat.hunger = 4;
     cat.fitness = 8;
     cat.age = 10;
     expect(cat.isAlive).toEqual(true);
+  });
+});
+
+describe('deathMsg', () => {
+  it('checkUp() thows an error message when the cat is no loner alive', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 10;
+    expect(cat.checkUp).toThrow('Your cat is no longer alive =^.^= ');
+  });
+  it('walk() thows an error message when the cat is no loner alive', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.fitness = 0;
+    expect(cat.walk).toThrow('Your cat is no longer alive =^.^= ');
+  });
+  it('feed() thows an error message when the cat is no loner alive', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.hunger = 10;
+    expect(cat.feed).toThrow('Your cat is no longer alive =^.^= ');
+});
+  it('growUp() thows an error message when the cat is no loner alive', () => {
+    const cat = new Cat('Mr Whiskerson');
+    cat.age = 30;
+    expect(cat.growUp).toThrow('Your cat is no longer alive =^.^= ');
   });
 });
 
